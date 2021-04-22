@@ -35,8 +35,8 @@ keepNonNegative = filter (\n -> n >= 0.0)
 infix 5 filter as <$?>
 
 keepNonNegativeRewrite :: Array Number -> Array Number
-keepNonNegativeRewrite xs = (\n -> n >= 0.0) <$?> xs
--- keepNonNegativeRewrite = (\n -> n >= 0.0) <$?> 얜 왜 안되지? eta conversion 때문?
+keepNonNegativeRewrite = (<$?>) (\n -> n >= 0.0)
+-- keepNonNegativeRewrite = (\n -> n >= 0.0) <$?> 얜 왜 안되지? eta conversion 때문? -> 괄호를 써서 함수로 만들면 된다!
 -- infixl, infixr, infix 에 따라 무슨 차이지?
 {--
 왜 이런 식으로는 안되는거지?
