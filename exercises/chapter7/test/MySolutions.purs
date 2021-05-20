@@ -45,8 +45,10 @@ divApply a b = (/) <$> a <*> b
 
 -- 3
 combineMaybe :: forall a f. Applicative f => Maybe (f a) -> f (Maybe a)
-combineMaybe (Just x) = Just <$> x
-combineMaybe Nothing = pure Nothing
+combineMaybe = sequence
+-- sequence 👍
+-- combineMaybe (Just x) = Just <$> x
+-- combineMaybe Nothing = pure Nothing
 
 ----------------
 -- Exercises #2
